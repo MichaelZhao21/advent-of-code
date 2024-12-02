@@ -4,3 +4,11 @@ This is a yearly Advent calendar for programming problems! It's a series of 50 s
 
 There's also a global leaderboard, but I definitely don't have the consistent time commitment to compete. I would highly recommend anyone to give it a go! There's archives of all the past years' problems up on the site, and the problems start easier then get harder on subsequent days. The site also has pretty ASCII art that gets revealed as you complete problems hehe.
 
+## Using Makefile
+
+To use the makefile, simply use the following command:
+
+```bash
+make DAY=<#>
+# Example: make DAY=2
+```
