@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Day9 {
+public class Day9a {
     public static void main(String[] args) throws IOException {
         BufferedReader f = new BufferedReader(new FileReader("day9.in"));
 
@@ -67,44 +67,44 @@ public class Day9 {
 
         // Part 2
         // THIS DOES NOT RUN IN A REASONABLE AMOUNT OF TIME FOR THE FULL INPUT :(
-        bl = new LinkedList<>();
-        curr = 0;
-        for (i = 0; i < nums.length; i++) {
-            if (i % 2 == 0) {
-                bl.add(new Block(curr++, nums[i]));
-            } else {
-                bl.add(new Block(-1, nums[i]));
-            }
-        }
+        // bl = new LinkedList<>();
+        // curr = 0;
+        // for (i = 0; i < nums.length; i++) {
+        //     if (i % 2 == 0) {
+        //         bl.add(new Block(curr++, nums[i]));
+        //     } else {
+        //         bl.add(new Block(-1, nums[i]));
+        //     }
+        // }
 
-        for (int j = bl.size() - 1; j >= 0; j--) {
-            if (j % 100 == 0)
-            System.out.println(j + "/" + bl.size());
-            Block move = bl.get(j);
-            if (move.num == -1) continue; // dont move empty
-            for (i = 0; i < j; i++) {
-                if (bl.get(i).num != -1) continue; // dont move into non empty
-                Block b = bl.get(i);
-                if (b.count < move.count) continue; // cant move to smaller space
-                if (b.count != move.count) { // need to make new block
-                    bl.add(i+1, new Block(b.num, b.count - move.count));
-                    b.count = move.count;
-                    j++;
-                }
-                b.num = move.num;
-                move.num = -1;
-                break;
-            }
-        }
-        out = new ArrayList<>();
-        for (Block block : bl) {
-            block.output(out);
-        }
-        total = 0;
-        for (int j = 0; j < out.size(); j++) {
-            total += j * out.get(j);
-        }
-        System.out.println(total);
+        // for (int j = bl.size() - 1; j >= 0; j--) {
+        //     if (j % 100 == 0)
+        //     System.out.println(j + "/" + bl.size());
+        //     Block move = bl.get(j);
+        //     if (move.num == -1) continue; // dont move empty
+        //     for (i = 0; i < j; i++) {
+        //         if (bl.get(i).num != -1) continue; // dont move into non empty
+        //         Block b = bl.get(i);
+        //         if (b.count < move.count) continue; // cant move to smaller space
+        //         if (b.count != move.count) { // need to make new block
+        //             bl.add(i+1, new Block(b.num, b.count - move.count));
+        //             b.count = move.count;
+        //             j++;
+        //         }
+        //         b.num = move.num;
+        //         move.num = -1;
+        //         break;
+        //     }
+        // }
+        // out = new ArrayList<>();
+        // for (Block block : bl) {
+        //     block.output(out);
+        // }
+        // total = 0;
+        // for (int j = 0; j < out.size(); j++) {
+        //     total += j * out.get(j);
+        // }
+        // System.out.println(total);
     }
 
     public static class Block {
